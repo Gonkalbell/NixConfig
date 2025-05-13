@@ -25,7 +25,9 @@
     fish
     git
     godot_4
+    jq
     neovim
+    ripgrep
     rustup
     starship
     steam
@@ -40,6 +42,11 @@
     '';
   };
 
+  programs.git = {
+    enable = true;
+    userEmail = "johnmichaelbell@gmal.org";
+    userName = "John Michael Bell";
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
