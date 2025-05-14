@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     alacritty
     curl
+    discord
     fish
     git
     godot_4
