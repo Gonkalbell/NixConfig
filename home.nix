@@ -31,7 +31,6 @@
     ripgrep
     rustup
     starship
-    steam
     vscode
     wget
   ];
