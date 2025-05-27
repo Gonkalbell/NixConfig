@@ -20,8 +20,8 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    alacritty
     curl
+    direnv
     discord
     fish
     git
@@ -81,6 +81,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    DRI_PRIME = 1;
   };
 
   # Let Home Manager install and manage itself.
