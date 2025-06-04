@@ -23,13 +23,11 @@
     curl
     direnv
     discord
-    fish
     git
     godot_4
     jq
     neovim
     ripgrep
-    rustup
     starship
     vscode
     wget
@@ -46,6 +44,20 @@
     enable = true;
     userEmail = "johnmichaelbell@gmal.org";
     userName = "John Michael Bell";
+  };
+
+  programs.kitty.enable = true; # required for the default Hyprland config
+  wayland.windowManager.hyprland = {
+    # Whether to enable Hyprland wayland compositor
+    enable = true;
+    # The hyprland package to use
+    package = pkgs.hyprland;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+
+    # Optional
+    # Whether to enable hyprland-session.target on hyprland startup
+    systemd.enable = true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

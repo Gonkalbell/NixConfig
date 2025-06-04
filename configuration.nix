@@ -100,6 +100,7 @@
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
+    backupFileExtension = "backup";
     users = {
       "gonkal" = import ./home.nix;
     };
@@ -114,7 +115,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    steam
   ];
 
   nixpkgs.config.allowUnfree = true;
