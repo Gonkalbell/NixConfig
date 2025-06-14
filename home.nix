@@ -23,6 +23,7 @@
     curl
     discord
     godot_4
+    nixfmt-rfc-style
     wget
   ];
 

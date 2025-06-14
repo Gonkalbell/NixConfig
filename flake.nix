@@ -12,14 +12,18 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.gonkal = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.default
-        inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-      ];
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [ ./configuration.nix ];
+      };
     };
-  };
 }
