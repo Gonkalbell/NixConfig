@@ -78,7 +78,6 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    DRI_PRIME = 1;
   };
 
   # Let Home Manager install and manage itself.
