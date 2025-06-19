@@ -91,6 +91,7 @@
   users.users.gonkal = {
     isNormalUser = true;
     description = "gonkal";
+    initialHashedPassword = "$y$j9T$GxAEfu3uXuqfEr.q3f0Gj.$yT9CHt0X2FQasBg4yI3.mN1OdslT5MvGps.dVjz9.z";
     extraGroups = [
       "networkmanager"
       "wheel"

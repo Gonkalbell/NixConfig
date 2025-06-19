@@ -18,6 +18,7 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+    shell.enableFishIntegration = true;
   };
 
   services = {
