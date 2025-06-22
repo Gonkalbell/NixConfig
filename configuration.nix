@@ -13,14 +13,6 @@
 
   hardware.bluetooth.enable = true;
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "backup";
-    users = {
-      "gonkal" = import ./home.nix;
-    };
-  };
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -55,6 +47,7 @@
     fish.enable = true;
     steam.enable = true;
     niri.enable = true;
+    xwayland.enable = true;
   };
 
   security.rtkit.enable = true;
