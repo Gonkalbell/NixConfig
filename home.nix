@@ -65,10 +65,13 @@
     vscode.enable = true;
 
     waybar = {
-      enable = false;
+      enable = true;
       systemd.enable = true;
     };
   };
 
-  xdg.configFile.niri.source = ./dotfiles/.config/niri;
+  xdg.configFile = {
+    niri.source = ./dotfiles/.config/niri;
+    waybar.source = ./dotfiles/.config/waybar;
+  };
 }

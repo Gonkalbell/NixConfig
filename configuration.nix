@@ -61,6 +61,7 @@
     firefox.enable = true;
     fish.enable = true;
     niri.enable = true;
+    nix-ld.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
     xwayland.enable = true;
