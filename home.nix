@@ -15,9 +15,11 @@
       nixfmt-rfc-style
       wget
     ];
+
     sessionVariables = {
       EDITOR = "nvim";
     };
+
     shell.enableFishIntegration = true;
   };
 
@@ -28,30 +30,45 @@
 
   programs = {
     direnv.enable = true;
-    jq.enable = true;
-    neovim.enable = true;
-    ripgrep.enable = true;
-    starship.enable = true;
-    vscode.enable = true;
+
     fish = {
       enable = true;
       interactiveShellInit = ''
         starship init fish | source
       '';
     };
+
+    fuzzel.enable = true;
+
     git = {
       enable = true;
       userEmail = "johnmichaelbell@gmal.org";
       userName = "John Michael Bell";
     };
 
-    fuzzel.enable = true;
+    home-manager.enable = true;
+
+    jq.enable = true;
+
+    neovim.enable = true;
+
+    nix-index = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    ripgrep.enable = true;
+
+    starship.enable = true;
+
+    vscode.enable = true;
 
     waybar = {
       enable = false;
       systemd.enable = true;
     };
-
-    home-manager.enable = true;
   };
+
+  xdg.configFile.niri.source = ./dotfiles/.config/niri;
 }

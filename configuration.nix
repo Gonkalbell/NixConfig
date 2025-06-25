@@ -1,9 +1,24 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.discover
+    kdePackages.kcalc
+    kdePackages.kcharselect
+    kdePackages.kcolorchooser
+    kdePackages.kolourpaint
+    kdePackages.ksystemlog
+    kdePackages.sddm-kcm
+    kdePackages.isoimagewriter
+    kdePackages.partitionmanager
+    kdePackages.yakuake
+    wayland-utils
+    wl-clipboard
+  ];
 
   fonts.packages = with pkgs; [
     font-awesome
@@ -45,8 +60,9 @@
   programs = {
     firefox.enable = true;
     fish.enable = true;
-    steam.enable = true;
     niri.enable = true;
+    partition-manager.enable = true;
+    steam.enable = true;
     xwayland.enable = true;
   };
 
