@@ -14,6 +14,7 @@
       nil
       nixfmt-rfc-style
       wget
+      xwayland-satellite
     ];
 
     sessionVariables = {
@@ -66,8 +67,10 @@
 
     waybar = {
       enable = true;
-      systemd.enable = true;
+      systemd.target = "niri-session";
     };
+
+    wofi.enable = true;
   };
 
   xdg.configFile = {

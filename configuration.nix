@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   boot.loader = {
     systemd-boot.enable = true;
@@ -27,6 +27,13 @@
   ];
 
   hardware.bluetooth.enable = true;
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.gonkal.imports = [ ./home.nix ];
+    extraSpecialArgs = { inherit inputs; };
+  };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -108,5 +115,22 @@
     ];
 
     shell = pkgs.fish;
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = [ "gtk" ];
+      niri.default = [
+        "gtk"
+        "gnome"
+      ];
+    };
+
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
   };
 }

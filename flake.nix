@@ -27,14 +27,6 @@
           ./configuration.nix
 
           home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.gonkal.imports = [ ./home.nix ];
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
 
           nixos-hardware.nixosModules.framework-16-7040-amd
         ];
