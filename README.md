@@ -2,11 +2,26 @@
 
 I don't understand nix, so I'm uploading my configuration to github so I can get help.
 
-A lot of this config is based on vimjoyer's tutorial: https://youtu.be/a67Sv4Mbxmc
+A lot of this config is based on these tutorials:
+  - https://youtu.be/a67Sv4Mbxmc
+  - https://nixos-and-flakes.thiscute.world/nixpkgs/intro
 
 ## TODO
 
 - What should I do if I want to use this config across multiple machines (framework 16, chromebook with Crostini, raspberry pi 400, steamdeck with steamOS)
+
+- Rice my NIRI DE and fix some bugs
+  - add background
+  - see why xwayland-satellite apps are too zoomed in
+  - see why steam won't launch
+  - copy-paste history!
+  - screenshot & video record
+  - nightlight
+
+- I'm using xdg.configFile.*.source to manage some config files. This makes the actual config read-only, and I have to edit them in this repo then nixos-rebuild / home-manager switch. I'm not sure if I'm happy with that. Should I:
+  - just make my ~/.config folder a separate git repo
+  - symlink my whole ~/.config to a folder in this repo
+  - change my config files to .nix files and use home-manager to configure them. I don't like how live/updating my configs or using gui options selectors won't work for that.
 
 ## Editor
 
@@ -25,20 +40,5 @@ A lot of this config is based on vimjoyer's tutorial: https://youtu.be/a67Sv4Mbx
   - integrated terminal
   - bracket coloring
   - go to symbol / symbol search
-
-## Niri config issues
-
-- vscode and steam don't launch
-- can't use network manager
-- I want 2 finger click for right-click
-- `waybar.enable` launches waybar on initialization, even in KDE. If niri also launches waybar, there are 2 bars
-
-## Desktop environment
-
-- should I use tiling or floating windows?
-- Features I always want in a desktop environment:
-  - copy-paste history!
-  - screenshot & video record
-  - nightlight
-  - show battery %, CPU Heat, CPU %, GPU Heat, GPU %, Volume, maybe network + disk?
-- check dotfiles into git vs use home-manager?
+  - browse files
+  - go back / forward to previous line / file
