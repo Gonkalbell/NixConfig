@@ -24,6 +24,7 @@
     font-awesome
     jetbrains-mono
     nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
   ];
 
   hardware.bluetooth.enable = true;
@@ -65,6 +66,10 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     firefox.enable = true;
     fish.enable = true;
     niri.enable = true;

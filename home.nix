@@ -69,12 +69,10 @@
       enable = true;
       systemd.target = "niri-session";
     };
-
-    wofi.enable = true;
   };
 
-  xdg.configFile = {
-    niri.source = ./dotfiles/.config/niri;
-    waybar.source = ./dotfiles/.config/waybar;
-  };
+  # xdg.configFile = {
+  #   niri.source = ./dotfiles/.config/niri;
+  #   waybar.source = ./dotfiles/.config/waybar;
+  # };
 }

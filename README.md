@@ -17,6 +17,7 @@ A lot of this config is based on these tutorials:
   - copy-paste history!
   - screenshot & video record
   - nightlight
+  - either hide cs
 
 - I'm using xdg.configFile.*.source to manage some config files. This makes the actual config read-only, and I have to edit them in this repo then nixos-rebuild / home-manager switch. I'm not sure if I'm happy with that. Should I:
   - just make my ~/.config folder a separate git repo
