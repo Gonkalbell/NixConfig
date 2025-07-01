@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 {
   imports = [ inputs.nvf.homeManagerModules.default ];
@@ -80,5 +80,12 @@
       enable = true;
       systemd.target = "niri-session";
     };
+
+    wofi.enable = true;
+  };
+
+  xdg.configFile = {
+    niri.source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.config/niri;
+    waybar.source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.config/waybar;
   };
 }

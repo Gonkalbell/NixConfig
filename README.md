@@ -17,12 +17,7 @@ A lot of this config is based on these tutorials:
   - copy-paste history!
   - screenshot & video record
   - nightlight
-  - either hide cs
-
-- I'm using xdg.configFile.*.source to manage some config files. This makes the actual config read-only, and I have to edit them in this repo then nixos-rebuild / home-manager switch. I'm not sure if I'm happy with that. Should I:
-  - just make my ~/.config folder a separate git repo
-  - symlink my whole ~/.config to a folder in this repo
-  - change my config files to .nix files and use home-manager to configure them. I don't like how live/updating my configs or using gui options selectors won't work for that.
+  - either hide client-side-decorations, or make them control niri windows
 
 ## Editor
 
