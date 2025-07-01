@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
+  imports = [ inputs.nvf.homeManagerModules.default ];
+
   home = {
     username = "gonkal";
     homeDirectory = "/home/gonkal";
@@ -51,12 +53,21 @@
 
     jq.enable = true;
 
-    neovim.enable = true;
+    # neovim.enable = true;
 
     nix-index = {
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+    };
+
+    nvf = {
+      enable = true;
+      settings = {
+        vim.viAlias = true;
+        vim.vimAlias = true;
+        vim.lsp.enable = true;
+      };
     };
 
     ripgrep.enable = true;
@@ -70,9 +81,4 @@
       systemd.target = "niri-session";
     };
   };
-
-  # xdg.configFile = {
-  #   niri.source = ./dotfiles/.config/niri;
-  #   waybar.source = ./dotfiles/.config/waybar;
-  # };
 }
