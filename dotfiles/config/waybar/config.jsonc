@@ -1,18 +1,17 @@
 {
-    "layer": "bottom",
-    "position": "bottom",
+    "layer": "top",
+    "position": "top",
     "mod": "dock",
     "exclusive": true,
     "gtk-layer-shell": true,
-    "margin-bottom": -1,
+    "margin-top": -1,
     "passthrough": false,
-    "height": 41,
+    "height": 32,
     "modules-left": [
         "custom/os_button",
-        "hyprland/workspaces",
-        "wlr/taskbar"
+        "niri/window"
     ],
-    "modules-center": [],
+    "modules-center": ["wlr/taskbar"],
     "modules-right": [
         "cpu",
         "custom/gpu-usage",
@@ -26,17 +25,6 @@
         "hyprland/language",
         "clock"
     ],
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "ENG",
-        "format-ru": "РУС"
-    },
-    "hyprland/workspaces": {
-        "icon-size": 32,
-        "spacing": 16,
-        "on-scroll-up": "hyprctl dispatch workspace r+1",
-        "on-scroll-down": "hyprctl dispatch workspace r-1"
-    },
     "custom/os_button": {
         "format": "",
         "on-click": "wofi --show drun",
@@ -151,8 +139,8 @@
         ]
     },
     "pulseaudio": {
-        "max-volume": 150,
-        "scroll-step": 10,
+        "max-volume": 100,
+        "scroll-step": 5,
         "format": "{icon}",
         "tooltip-format": "{volume}%",
         "format-muted": " ",

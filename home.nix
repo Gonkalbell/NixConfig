@@ -85,7 +85,7 @@
   };
 
   xdg.configFile = {
-    niri.source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.config/niri;
-    waybar.source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/.config/waybar;
+    niri.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/niri";
+    waybar.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/waybar";
   };
 }
