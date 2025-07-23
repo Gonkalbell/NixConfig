@@ -53,6 +53,8 @@
 
     jq.enable = true;
 
+    jujutsu.enable = true;
+
     # neovim.enable = true;
 
     nix-index = {
