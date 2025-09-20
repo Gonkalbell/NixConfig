@@ -72,6 +72,7 @@
     };
     firefox.enable = true;
     fish.enable = true;
+    hyprland.enable = true;
     niri.enable = true;
     nix-ld.enable = true;
     partition-manager.enable = true;

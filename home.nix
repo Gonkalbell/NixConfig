@@ -9,12 +9,13 @@
     stateVersion = "24.11";
 
     packages = with pkgs; [
-      alacritty
+      brightnessctl
       curl
       discord
       godot_4
       nil
       nixfmt-rfc-style
+      pamixer
       wget
       xwayland-satellite
     ];
@@ -28,11 +29,16 @@
 
   services = {
     gnome-keyring.enable = true;
+    hyprshell.enable = true;
+    hyprsunset.enable = true;
     mako.enable = true;
+    swww.enable = true;
   };
 
   programs = {
     direnv.enable = true;
+
+    fastfetch.enable = true;
 
     fish = {
       enable = true;
@@ -45,6 +51,7 @@
 
     git = {
       enable = true;
+      lfs.enable = true;
       userEmail = "johnmichaelbell@gmal.org";
       userName = "John Michael Bell";
     };
@@ -55,7 +62,7 @@
 
     jujutsu.enable = true;
 
-    # neovim.enable = true;
+    kitty.enable = true;
 
     nix-index = {
       enable = true;
@@ -72,6 +79,8 @@
       };
     };
 
+    pywal.enable = true;
+
     ripgrep.enable = true;
 
     starship.enable = true;
@@ -86,8 +95,10 @@
     wofi.enable = true;
   };
 
-  xdg.configFile = {
-    niri.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/niri";
-    waybar.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/waybar";
-  };
+  wayland.windowManager.hyprland.enable = true;
+
+  # xdg.configFile = {
+  #   niri.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/niri";
+  #   waybar.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/waybar";
+  # };
 }
