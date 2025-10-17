@@ -2,6 +2,7 @@
 {
   boot.loader = {
     systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 10;
     efi.canTouchEfiVariables = true;
   };
 
@@ -58,10 +59,20 @@
     networkmanager.enable = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 
