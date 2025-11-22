@@ -19,6 +19,7 @@
     kdePackages.yakuake
     wayland-utils
     wl-clipboard
+    hplipWithPlugin
   ];
 
   fonts.packages = with pkgs; [
@@ -94,27 +95,31 @@
   security.rtkit.enable = true;
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
     desktopManager.plasma6.enable = true;
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-
-    printing.enable = true;
     openssh.enable = true;
+    printing.enable = true;
+    printing.drivers = [ pkgs.hplipWithPlugin ];
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
   };
 
