@@ -52,8 +52,8 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userEmail = "johnmichaelbell@gmal.org";
-      userName = "John Michael Bell";
+      settings.user.email = "johnmichaelbell@gmal.org";
+      settings.user.name = "John Michael Bell";
     };
 
     home-manager.enable = true;
