@@ -87,8 +87,8 @@
     };
     firefox.enable = true;
     fish.enable = true;
-    hyprland.enable = true;
-    niri.enable = true;
+    # hyprland.enable = true;
+    # niri.enable = true;
     nix-ld.enable = true;
     partition-manager.enable = true;
     steam.enable = true;
@@ -100,7 +100,7 @@
   services = {
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
     displayManager.sddm = {
       enable = true;
@@ -147,10 +147,10 @@
     xdgOpenUsePortal = true;
     config = {
       common.default = [ "gtk" ];
-      niri.default = [
-        "gtk"
-        "gnome"
-      ];
+      # niri.default = [
+      #   "gtk"
+      #   "gnome"
+      # ];
     };
 
     extraPortals = [

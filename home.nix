@@ -29,10 +29,10 @@
 
   services = {
     gnome-keyring.enable = true;
-    hyprshell.enable = true;
-    hyprsunset.enable = true;
-    mako.enable = true;
-    swww.enable = true;
+    # hyprshell.enable = true;
+    # hyprsunset.enable = true;
+    # mako.enable = true;
+    # swww.enable = true;
   };
 
   programs = {
