@@ -1,7 +1,7 @@
 { pkgs, inputs, config, ... }:
 
 {
-  imports = [ inputs.nvf.homeManagerModules.default ];
+  # imports = [ inputs.nvf.homeManagerModules.default ];
 
   home = {
     username = "gonkal";
@@ -70,14 +70,14 @@
       enableFishIntegration = true;
     };
 
-    nvf = {
-      enable = true;
-      settings = {
-        vim.viAlias = true;
-        vim.vimAlias = true;
-        vim.lsp.enable = true;
-      };
-    };
+    # nvf = {
+    #   enable = true;
+    #   settings = {
+    #     vim.viAlias = true;
+    #     vim.vimAlias = true;
+    #     vim.lsp.enable = true;
+    #   };
+    # };
 
     pywal.enable = true;
 
