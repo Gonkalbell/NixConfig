@@ -91,7 +91,14 @@
     # niri.enable = true;
     nix-ld.enable = true;
     partition-manager.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      package = pkgs.steam.override {
+        extraEnv = {
+          DRI_PRIME = "1";
+        };
+      };
+    };
     xwayland.enable = true;
   };
 

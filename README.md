@@ -13,7 +13,6 @@ A lot of this config is based on these tutorials:
 - Rice my NIRI DE and fix some bugs
   - add background
   - see why xwayland-satellite apps are too zoomed in
-  - see why steam won't launch
   - copy-paste history!
   - screenshot & video record
   - nightlight
