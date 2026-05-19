@@ -7,6 +7,11 @@
   flake.nixosModules.framework16Configuration =
     { inputs, pkgs, ... }:
     {
+      imports = [
+        self.nixosModules.framework16Hardware
+        self.nixosModules.niri
+      ];
+
       boot.loader = {
         systemd-boot.enable = true;
         systemd-boot.configurationLimit = 10;
@@ -59,8 +64,6 @@
           LC_TIME = "en_US.UTF-8";
         };
       };
-
-      imports = [ self.nixosModules.framework16Hardware ];
 
       networking = {
         hostName = "framework";

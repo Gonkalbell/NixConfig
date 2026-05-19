@@ -20,7 +20,7 @@
           discord
           godot_4
           nil
-          nixfmt-rfc-style
+          nixfmt
           wget
         ];
 
