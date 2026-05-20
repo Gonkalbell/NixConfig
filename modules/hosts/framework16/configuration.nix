@@ -97,6 +97,7 @@
         };
         firefox.enable = true;
         fish.enable = true;
+        nix-index-database.comma.enable = true;
         nix-ld.enable = true;
         partition-manager.enable = true;
         steam = {

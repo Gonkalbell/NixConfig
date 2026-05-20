@@ -65,13 +65,13 @@
             "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             "XF86AudioMicMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
-            "XF86AudioPlay".spawn-sh = "playerctl play-pause";
-            "XF86AudioStop".spawn-sh = "playerctl stop";
-            "XF86AudioPrev".spawn-sh = "playerctl previous";
-            "XF86AudioNext".spawn-sh = "playerctl next";
+            "XF86AudioPlay".spawn-sh = "${lib.getExe pkgs.playerctl} play-pause";
+            "XF86AudioStop".spawn-sh = "${lib.getExe pkgs.playerctl} stop";
+            "XF86AudioPrev".spawn-sh = "${lib.getExe pkgs.playerctl} previous";
+            "XF86AudioNext".spawn-sh = "${lib.getExe pkgs.playerctl} next";
 
-            "XF86MonBrightnessUp".spawn = "brightnessctl";
-            "XF86MonBrightnessDown".spawn = "brightnessctl";
+            "XF86MonBrightnessUp".spawn = [(lib.getExe pkgs.brightnessctl) "--class=backlight" "set" "+10%"];
+            "XF86MonBrightnessDown".spawn = [(lib.getExe pkgs.brightnessctl) "--class=backlight" "set" "10%-"];
 
             "Mod+O".toggle-overview = _: {};
             "Mod+Q".close-window = _: {};
