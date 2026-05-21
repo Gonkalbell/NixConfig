@@ -5,9 +5,12 @@
     let
       pkgsAllowUnfree = import inputs.nixpkgs {
         inherit (pkgs) system;
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+        };
       };
-    in {
+    in
+    {
       packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
         pkgs = pkgsAllowUnfree;
         # settings = (builtins.fromJSON (builtins.readFile ./noctalia.json)).settings;

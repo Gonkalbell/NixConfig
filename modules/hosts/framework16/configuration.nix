@@ -10,6 +10,7 @@
       imports = [
         self.nixosModules.framework16Hardware
         self.nixosModules.niri
+        self.nixosModules.neovim
       ];
 
       boot.loader = {
