@@ -1,7 +1,15 @@
-{ self, inputs, ... }:
+{
+  self,
+  inputs,
+  ...
+}:
 {
   flake.nixosModules.niri =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      ...
+    }:
     {
       programs.niri = {
         enable = true;
@@ -46,7 +54,7 @@
             touchpad = {
               drag = true;
               click-method = "clickfinger";
-              accel-profile = "flat";
+              accel-speed = 0.2;
               scroll-method = "two-finger";
             };
           };
@@ -85,8 +93,30 @@
 
             "Mod+O".toggle-overview = _: { };
             "Mod+Q".close-window = _: { };
-            "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
-            "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+            "Mod+Return" = _: {
+              props.hotkey-overlay-title = "Launch Kitty Terminal";
+              content.spawn = lib.getExe pkgs.kitty;
+            };
+            "Mod+Space" = _: {
+              props.hotkey-overlay-title = "Launcher";
+              content.spawn = [(lib.getExe self'.packages.myNoctalia) "ipc" "call" "launcher" "toggle"];
+            };
+            "Mod+Shift+Space" = _: {
+              props.hotkey-overlay-title = "Window Selector";
+              content.spawn = [(lib.getExe self'.packages.myNoctalia) "ipc" "call" "launcher" "windows"];
+            };
+            "Mod+Period" = _: {
+              props.hotkey-overlay-title = "Emoji Selector";
+              content.spawn = [(lib.getExe self'.packages.myNoctalia) "ipc" "call" "launcher" "emoji"];
+            };
+            "Mod+Shift+Period" = _: {
+              props.hotkey-overlay-title = "Run Command";
+              content.spawn = [(lib.getExe self'.packages.myNoctalia) "ipc" "call" "launcher" "command"];
+            };
+            "Mod+V" = _: {
+              props.hotkey-overlay-title = "Clipboard history";
+              content.spawn = [(lib.getExe self'.packages.myNoctalia) "ipc" "call" "launcher" "clipboard"];
+            };
 
             "Mod+Left".focus-column-left = _: { };
             "Mod+Down".focus-window-down = _: { };
@@ -180,8 +210,8 @@
             "Mod+BracketLeft".consume-or-expel-window-left = _: { };
             "Mod+BracketRight".consume-or-expel-window-right = _: { };
 
-            "Mod+Comma".consume-window-into-column = _: { };
-            "Mod+Period".expel-window-from-column = _: { };
+            # "Mod+Comma".consume-window-into-column = _: {};
+            # "Mod+Period".expel-window-from-column = _: {};
 
             "Mod+R".switch-preset-column-width = _: { };
             "Mod+Shift+R".switch-preset-column-width-back = _: { };
@@ -206,7 +236,7 @@
             "Mod+Shift+Minus".set-window-height = "-10%";
             "Mod+Shift+Equal".set-window-height = "+10%";
 
-            "Mod+V".toggle-window-floating = _: { };
+            "Mod+Ctrl+V".toggle-window-floating = _: { };
             "Mod+Shift+V".switch-focus-between-floating-and-tiling = _: { };
 
             "Mod+W".toggle-column-tabbed-display = _: { };
