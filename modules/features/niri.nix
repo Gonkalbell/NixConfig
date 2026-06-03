@@ -5,11 +5,7 @@
 }:
 {
   flake.nixosModules.niri =
-    {
-      pkgs,
-      lib,
-      ...
-    }:
+    { pkgs, lib, ... }:
     {
       programs.niri = {
         enable = true;
