@@ -1,16 +1,8 @@
-{ self, inputs, ... }: {
-  flake.homeConfigurations.gonkal = inputs.home-manager.lib.homeManagerConfiguration {
-    pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
-    modules = [
-      self.homeModules.gonkalModule
-      {
-        home.username = "gonkal";
-        home.homeDirectory = "/home/gonkal";
-      }
-    ];
-  };
-
-  flake.homeModules.gonkalModule = { pkgs, ... }: {
+{ self, inputs, ... }:
+{
+  flake.homeModules.gonkalModule =
+    { pkgs, ... }:
+    {
       home = {
         stateVersion = "24.11";
 
@@ -61,6 +53,6 @@
 
         vscode.enable = true;
       };
-  };
+    };
 
 }
