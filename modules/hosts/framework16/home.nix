@@ -1,18 +1,17 @@
-{ self, inputs, ... }:
-{
-  flake.homeManagerModules.home =
-    {
-      pkgs,
-      inputs,
-      config,
-      ...
-    }:
-    {
-      imports = [ ];
+{ self, inputs, ... }: {
+  flake.homeConfigurations.gonkal = inputs.home-manager.lib.homeManagerConfiguration {
+    pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+    modules = [
+      self.homeModules.gonkalModule
+      {
+        home.username = "gonkal";
+        home.homeDirectory = "/home/gonkal";
+      }
+    ];
+  };
 
+  flake.homeModules.gonkalModule = { pkgs, ... }: {
       home = {
-        username = "gonkal";
-        homeDirectory = "/home/gonkal";
         stateVersion = "24.11";
 
         packages = with pkgs; [
@@ -32,6 +31,8 @@
       };
 
       programs = {
+        home-manager.enable = true;
+
         direnv.enable = true;
 
         fish = {
@@ -60,5 +61,6 @@
 
         vscode.enable = true;
       };
-    };
+  };
+
 }

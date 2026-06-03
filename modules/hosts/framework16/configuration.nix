@@ -44,12 +44,7 @@
 
       hardware.bluetooth.enable = true;
 
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.gonkal.imports = [ self.homeManagerModules.home ];
-        extraSpecialArgs = { inherit inputs; };
-      };
+      home-manager.users.gonkal = self.homeModules.gonkalModule;
 
       i18n = {
         defaultLocale = "en_US.UTF-8";
