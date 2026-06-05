@@ -1,7 +1,7 @@
 # modules/features/neovim.nix
 {inputs, ...}: {
-  flake.nixosModules.neovim = {...}: {
-    imports = [inputs.nvf.nixosModules.default];
+  flake.homeManagerModules.neovim = {...}: {
+    imports = [inputs.nvf.homeManagerModules.default];
 
     programs.nvf.enable = true;
     programs.nvf.settings.vim = {

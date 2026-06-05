@@ -3,9 +3,12 @@
   flake.homeModules.gonkalModule =
     { pkgs, ... }:
     {
+      imports = [
+        self.homeManagerModules.neovim
+      ];
+
       home = {
         stateVersion = "24.11";
-
         packages = with pkgs; [
           curl
           discord
@@ -53,6 +56,10 @@
 
         vscode.enable = true;
       };
-    };
 
+      targets.genericLinux = {
+        enable = true;
+        gpu.enable = true;
+      };
+    };
 }
