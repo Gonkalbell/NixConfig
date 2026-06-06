@@ -43,7 +43,10 @@
 
       hardware.bluetooth.enable = true;
 
-      home-manager.users.gonkal = self.homeModules.gonkalModule;
+      home-manager = {
+        backupFileExtension = "backup";
+        users.gonkal = self.homeModules.gonkalModule;
+      };
 
       i18n = {
         defaultLocale = "en_US.UTF-8";
@@ -90,11 +93,8 @@
           enable = true;
           binfmt = true;
         };
-        firefox.enable = true;
         fish.enable = true;
-        nix-index-database.comma.enable = true;
         nix-ld.enable = true;
-        partition-manager.enable = true;
         steam = {
           enable = true;
           package = pkgs.steam.override {
@@ -149,9 +149,9 @@
           "networkmanager"
           "wheel"
         ];
-
         shell = pkgs.fish;
       };
+
     };
 
 }

@@ -6,6 +6,7 @@
       imports = [
         self.homeModules.neovim
         self.homeModules.stylix
+        inputs.nix-index-database.homeModules.default
       ];
 
       home = {
@@ -22,14 +23,17 @@
         sessionVariables = {
           EDITOR = "nvim";
         };
-
-        shell.enableFishIntegration = true;
       };
 
       programs = {
         home-manager.enable = true;
 
-        direnv.enable = true;
+        direnv = {
+          enable = true;
+          enableFishIntegration = true;
+        };
+
+        firefox.enable = true;
 
         fish = {
           enable = true;
@@ -50,6 +54,8 @@
           enableBashIntegration = true;
           enableFishIntegration = true;
         };
+
+        nix-index-database.comma.enable = true;
 
         ripgrep.enable = true;
 
