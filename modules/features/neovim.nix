@@ -1,6 +1,6 @@
 # modules/features/neovim.nix
 {inputs, ...}: {
-  flake.homeManagerModules.neovim = {...}: {
+  flake.homeModules.neovim = {...}: {
     imports = [inputs.nvf.homeManagerModules.default];
 
     programs.nvf.enable = true;
@@ -46,14 +46,7 @@
 
       statusline.lualine = {
         enable = true;
-        theme = "auto";
-      };
-
-      theme = {
-        enable = true;
-        name = "catppuccin";
-        style = "mocha";
-        transparent = false;
+        theme = "base16";
       };
 
       autopairs.nvim-autopairs.enable = true;

@@ -4,7 +4,8 @@
     { pkgs, ... }:
     {
       imports = [
-        self.homeManagerModules.neovim
+        self.homeModules.neovim
+        self.homeModules.stylix
       ];
 
       home = {
