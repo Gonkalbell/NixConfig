@@ -10,29 +10,34 @@
       imports = [
         self.nixosModules.framework16Hardware
         self.nixosModules.niri
+        self.nixosModules.stylix
       ];
 
       boot.loader = {
-        systemd-boot.enable = true;
-        systemd-boot.configurationLimit = 10;
+        systemd-boot = {
+          enable = true;
+          configurationLimit = 10;
+        };
         efi.canTouchEfiVariables = true;
       };
 
-      environment.systemPackages = with pkgs; [
-        kdePackages.discover
-        kdePackages.kcalc
-        kdePackages.kcharselect
-        kdePackages.kcolorchooser
-        kdePackages.kolourpaint
-        kdePackages.ksystemlog
-        kdePackages.sddm-kcm
-        kdePackages.isoimagewriter
-        kdePackages.partitionmanager
-        kdePackages.yakuake
-        wayland-utils
-        wl-clipboard
-        hplipWithPlugin
-      ];
+      environment = {
+        systemPackages = with pkgs; [
+          kdePackages.discover
+          kdePackages.kcalc
+          kdePackages.kcharselect
+          kdePackages.kcolorchooser
+          kdePackages.kolourpaint
+          kdePackages.ksystemlog
+          kdePackages.sddm-kcm
+          kdePackages.isoimagewriter
+          kdePackages.partitionmanager
+          kdePackages.yakuake
+          wayland-utils
+          wl-clipboard
+          hplipWithPlugin
+        ];
+      };
 
       fonts.packages = with pkgs; [
         font-awesome
@@ -79,6 +84,7 @@
             "flakes"
           ];
         };
+
         gc = {
           automatic = true;
           dates = "weekly";
@@ -93,8 +99,18 @@
           enable = true;
           binfmt = true;
         };
+
         fish.enable = true;
+
+        nh = {
+          enable = true;
+          clean.enable = true;
+          clean.extraArgs = "--keep-since 10d --keep 10";
+          flake = "/home/gonkal/nixos#framework16";
+        };
+
         nix-ld.enable = true;
+
         steam = {
           enable = true;
           package = pkgs.steam.override {
@@ -103,6 +119,7 @@
             };
           };
         };
+
         xwayland.enable = true;
       };
 
@@ -113,21 +130,30 @@
           enable = true;
           nssmdns4 = true;
         };
+
         displayManager.sddm = {
           enable = true;
           wayland.enable = true;
         };
+
         desktopManager.plasma6.enable = true;
+
         openssh.enable = true;
-        printing.enable = true;
-        printing.drivers = [ pkgs.hplipWithPlugin ];
+
+        printing = {
+          enable = true;
+          drivers = [ pkgs.hplipWithPlugin ];
+        };
+
         pulseaudio.enable = false;
+
         pipewire = {
           enable = true;
           alsa.enable = true;
           alsa.support32Bit = true;
           pulse.enable = true;
         };
+
         xserver = {
           enable = true;
           xkb = {
@@ -143,12 +169,16 @@
 
       users.users.gonkal = {
         isNormalUser = true;
+
         description = "gonkal";
+
         initialHashedPassword = "$y$j9T$GxAEfu3uXuqfEr.q3f0Gj.$yT9CHt0X2FQasBg4yI3.mN1OdslT5MvGps.dVjz9.z";
+
         extraGroups = [
           "networkmanager"
           "wheel"
         ];
+
         shell = pkgs.fish;
       };
 

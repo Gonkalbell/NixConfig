@@ -5,7 +5,6 @@
     {
       imports = [
         self.homeModules.neovim
-        self.homeModules.stylix
         inputs.nix-index-database.homeModules.default
       ];
 
