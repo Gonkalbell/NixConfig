@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 {
   flake.homeModules.gonkalModule =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       imports = [
         self.homeModules.neovim
@@ -32,7 +32,10 @@
           enableFishIntegration = true;
         };
 
-        firefox.enable = true;
+        firefox = {
+          enable = true;
+          configPath = "${config.xdg.configHome}/mozilla/firefox";
+        };
 
         fish = {
           enable = true;
