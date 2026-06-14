@@ -21,23 +21,11 @@
         efi.canTouchEfiVariables = true;
       };
 
-      environment = {
-        systemPackages = with pkgs; [
-          kdePackages.discover
-          kdePackages.kcalc
-          kdePackages.kcharselect
-          kdePackages.kcolorchooser
-          kdePackages.kolourpaint
-          kdePackages.ksystemlog
-          kdePackages.sddm-kcm
-          kdePackages.isoimagewriter
-          kdePackages.partitionmanager
-          kdePackages.yakuake
-          wayland-utils
-          wl-clipboard
-          hplipWithPlugin
-        ];
-      };
+      environment.systemPackages = with pkgs; [
+        wayland-utils
+        wl-clipboard
+        hplipWithPlugin
+      ];
 
       fonts.packages = with pkgs; [
         font-awesome
@@ -129,12 +117,7 @@
           nssmdns4 = true;
         };
 
-        displayManager.sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
-
-        desktopManager.plasma6.enable = true;
+        displayManager.lemurs.enable = true;
 
         openssh.enable = true;
 

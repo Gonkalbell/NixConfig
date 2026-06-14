@@ -20,17 +20,9 @@
       self',
       ...
     }:
-    let
-      pkgsAllowUnfree = import inputs.nixpkgs {
-        inherit (pkgs) system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in
     {
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-        pkgs = pkgsAllowUnfree;
+        inherit pkgs;
 
         v2-settings = true;
 
