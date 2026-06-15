@@ -2,16 +2,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    import-tree.url = "github:vic/import-tree";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -28,8 +27,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    wrapper-modules = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
