@@ -10,7 +10,6 @@
       imports = [
         self.nixosModules.framework16Hardware
         self.nixosModules.niri
-        self.nixosModules.stylix
       ];
 
       boot.loader = {
@@ -117,7 +116,12 @@
           nssmdns4 = true;
         };
 
-        displayManager.lemurs.enable = true;
+        displayManager.sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+
+        desktopManager.plasma6.enable = true;
 
         openssh.enable = true;
 
