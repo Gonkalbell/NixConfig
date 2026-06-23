@@ -311,11 +311,11 @@
       "settingsPanelSideBarCardStyle": false
     },
     "location": {
-      "name": "",
+      "name": "Winter Park",
       "weatherEnabled": true,
       "weatherShowEffects": true,
       "weatherTaliaMascotAlways": false,
-      "useFahrenheit": false,
+      "useFahrenheit": true,
       "use12hourFormat": false,
       "showWeekNumberInCalendar": false,
       "showCalendarEvents": true,
@@ -324,7 +324,7 @@
       "firstDayOfWeek": -1,
       "hideWeatherTimezone": false,
       "hideWeatherCityName": false,
-      "autoLocate": false
+      "autoLocate": true
     },
     "calendar": {
       "cards": [
@@ -691,7 +691,7 @@
       "enableUserTheming": false
     },
     "nightLight": {
-      "enabled": false,
+      "enabled": true,
       "forced": false,
       "autoSchedule": true,
       "nightTemp": "4545",
@@ -744,7 +744,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-2": "/nix/store/ayjfjcqxz83mq19a9gpnn5zpw8lc452i-noctalia-shell-4.7.6/share/noctalia-shell/Assets/Wallpaper/noctalia.png"
+      "eDP-2": "/home/gonkal/Pictures/Wallpapers/wallhaven_gw2mel.jpg"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -765,10 +765,10 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1780542855000
+      "lastSeenTs": 1781630955000
     },
     "changelogState": {
-      "lastSeenVersion": "v4.7.6"
+      "lastSeenVersion": "v4.7.7"
     },
     "colorSchemesList": {
       "schemes": [
