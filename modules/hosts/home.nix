@@ -13,9 +13,12 @@
         packages = with pkgs; [
           curl
           discord
+          freerdp
           godot_4
           nil
           nixfmt
+          openvpn
+          slack
           wget
         ];
 
@@ -65,6 +68,8 @@
 
         vscode.enable = true;
       };
+
+      services.remmina.enable = true;
 
       targets.genericLinux = {
         enable = true;
