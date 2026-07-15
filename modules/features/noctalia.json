@@ -401,7 +401,13 @@
       "position": "center",
       "pinnedApps": [
         "code",
-        "firefox"
+        "firefox",
+        "org.godotengine.Godot4.7",
+        "steam",
+        "org.kde.dolphin",
+        "slack",
+        "org.remmina.Remmina",
+        "discord"
       ],
       "sortByMostUsed": true,
       "terminalCommand": "kitty -e ",
