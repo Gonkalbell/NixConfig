@@ -30,6 +30,8 @@
       programs = {
         home-manager.enable = true;
 
+        claude-code.enable = true;
+
         direnv = {
           enable = true;
           enableFishIntegration = true;
