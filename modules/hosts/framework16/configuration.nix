@@ -89,6 +89,11 @@
 
         fish.enable = true;
 
+        gamescope = {
+          enable = true;
+          capSysNice = true;
+        };
+
         nh = {
           enable = true;
           flake = "/home/gonkal/nixos#framework16";
@@ -98,6 +103,7 @@
 
         steam = {
           enable = true;
+          gamescopeSession.enable = true;
           package = pkgs.steam.override {
             extraEnv = {
               DRI_PRIME = "1";
