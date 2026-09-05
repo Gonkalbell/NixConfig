@@ -42,12 +42,7 @@
           configPath = "${config.xdg.configHome}/mozilla/firefox";
         };
 
-        fish = {
-          enable = true;
-          interactiveShellInit = ''
-            starship init fish | source
-          '';
-        };
+        fish.enable = true;
 
         git = {
           enable = true;

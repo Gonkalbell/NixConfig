@@ -129,6 +129,8 @@
 
         desktopManager.plasma6.enable = true;
 
+        displayManager.defaultSession = "niri";
+
         openssh.enable = true;
 
         printing = {
