@@ -17,14 +17,17 @@
     {
       pkgs,
       lib,
-      self',
       ...
     }:
     {
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
 
-        "config.kdl".content = ''
+        "config.kdl".content =
+          let
+            noctalia = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+          in
+          ''
 
           input {
             keyboard {
@@ -45,7 +48,6 @@
 
           layout { gaps 8; }
 
-          spawn-at-startup "${lib.getExe self'.packages.myNoctalia}"
           xwayland-satellite { path "${lib.getExe pkgs.xwayland-satellite}"; }
 
           binds {
@@ -67,11 +69,8 @@
             Mod+O { toggle-overview; }
             Mod+Q { close-window; }
             Mod+Return hotkey-overlay-title="Launch Kitty Terminal" { spawn "${lib.getExe pkgs.kitty}"; }
-            Mod+Space hotkey-overlay-title="Launcher" { spawn "${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "toggle"; }
-            Mod+Shift+Space hotkey-overlay-title="Window Selector" { spawn "${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "windows"; }
-            Mod+Period hotkey-overlay-title="Emoji Selector" { spawn "${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "emoji"; }
-            Mod+Shift+Period hotkey-overlay-title="Run Command" { spawn "${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "command"; }
-            Mod+V hotkey-overlay-title="Clipboard history" { spawn "${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "clipboard"; }
+            Mod+Space hotkey-overlay-title="Launcher" { spawn "${noctalia}" "msg" "panel-toggle" "launcher"; }
+            Mod+Period hotkey-overlay-title="Emoji Selector" { spawn "${noctalia}" "msg" "panel-toggle" "launcher" "/emo"; }
 
             Mod+Left { focus-column-left; }
             Mod+Down { focus-window-down; }
