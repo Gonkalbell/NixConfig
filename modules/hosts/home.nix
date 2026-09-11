@@ -5,6 +5,7 @@
     {
       imports = [
         self.homeModules.neovim
+        self.homeModules.noctalia
         inputs.nix-index-database.homeModules.default
       ];
 
